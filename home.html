@@ -1,0 +1,91 @@
+<!-- templates/home.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transport Booking System - Home</title>
+    <style>
+        /* Your home page styles here */
+        body {
+            background-image: url("{{ url_for('static', filename='PSG.jpg') }}");
+            background-size: 200px; 
+            background-position: center bottom;
+            background-repeat: no-repeat;
+            font-family: Arial, sans-serif;
+        }
+        marquee {
+            font-size: 35px;
+            color: #007bff; /* Blue color for the text */
+            border: 2px solid #000000; /* Border style */
+            padding: 1px; /* Padding to add space around the text */
+            border-radius: 50px; /* Optional: Rounded corners */
+        }
+        button {
+            background-color: #fa1919; /* Green background */
+            color: white;
+            padding: 10px 15px;
+            margin: 8px 0;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #4CAF50;
+        }
+        .contact-info {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+        .social-links {
+            margin-top: 20px;
+        }
+        .social-links a {
+            display: inline-block;
+            margin-right: 10px;
+            text-decoration: none;
+            color: #fff; /* White text color */
+            background-color: #333; /* Dark gray background color */
+            padding: 10px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body><center>
+    <marquee behavior="scroll" direction="left">
+        <h1>PSG Transport Booking.</h1>
+    </marquee>
+    <h1>Welcome to the Transport Booking System</h1>
+    <p><h3>Click button below to see available vehicle and book it.</h3></p>
+    <!-- Add more content as needed -->
+    <a href="{{ url_for('index') }}">
+        <button>Go to Booking Page</button>
+    </a>
+    <div class="contact-info">
+        <h3>Contact Information:</h3>
+        <p>
+            Phone: 9632587410, 8965743210, 9765802314<br>
+            Email: psgtransport@gmail.com<br>
+            Address: Mepco College, Sivakasi, TamilNadu.
+        </p>
+    </div>
+    <div class="social-links">
+        <h3>Follow Us:</h3>
+        <a href="https://www.facebook.com">Facebook</a>
+        <a href="https://twitter.com">Twitter</a>
+        <a href="https://www.instagram.com">Instagram</a>
+    </div>
+    </center>
+    <p>
+        <h3>
+            Owners : <br>
+            <ul>
+                Perumal<br>
+                Sathiesh<br>
+                Guhan<br>
+            </ul>
+        </h3>
+    </p>
+</body>
+</html>

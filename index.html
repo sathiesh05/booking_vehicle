@@ -1,0 +1,141 @@
+<!-- templates/index.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transport Booking System</title>
+    <!-- Include SweetAlert CSS -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/sweetalert2@11">
+    <!-- Include SweetAlert JS -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <style>
+        body {
+            background-color: #aaa5f5; /* Light gray background */
+            color: #333; /* Dark gray text color */
+            font-family: Arial, sans-serif; /* Choose your preferred font */
+        }
+        /* Add more styles as needed */
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #ffffff; /* White background */
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Light box shadow */
+        }
+        input, select {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #08e6da;
+            box-sizing: border-box;
+            border-radius: 4px;
+        }
+        button {
+            background-color: #4CAF50; /* Green background */
+            color: white;
+            padding: 10px 15px;
+            margin: 8px 0;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049; /* Darker green on hover */
+        }
+
+    </style>
+</head>
+<body>
+    
+    <div class="container">
+        <h1>Transport Booking System</h1>
+
+        <!-- Displaying vehicles in index.html -->
+        <h2>Available Vehicles</h2>
+        <table border="10px">
+            <tr>
+                <th>Vehicle Type</th>
+                <th>Available Vehicle</th>
+                <th>Capacity</th>
+                <th>Charges</th>
+            </tr>
+            {% for vehicle in vehicles %}
+                <tr>
+                    <td>{{ vehicle[1] }}</td>
+                    <td>{{ vehicle[2] }}</td>
+                    <td>{{ vehicle[3] }}</td>
+                    <td>{{ vehicle[4] }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+        <p><h1>Booking your vehicle.</h1></p>
+        <form method="POST" action="/index">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="phone">Phone Number:</label>
+            <input type="tel" id="phone" name="phone" required>
+
+            <label for="vehicle_type">Vehicle Type:</label>
+            <select id="vehicle_type" name="vehicle_type" required>
+                <option value="Car">Car</option>
+                <option value="Bus">Bus</option>
+                <option value="Van">Van</option>
+            </select>
+
+            <label for="num_seats">Number of Seats:</label>
+            <input type="number" id="num_seats" name="num_seats" min="1" required>
+
+            <label for="starting_location">Starting Location:</label>
+            <input type="text" id="starting_location" name="starting_location" required>
+
+            <label for="ending_location">Ending Location:</label>
+            <input type="text" id="ending_location" name="ending_location" required>
+
+            <button type="submit" onclick="showSweetAlert()">Book Now</button>
+        </form>
+        <a href="{{ url_for('home') }}">Return to Home</a>
+    </div>
+
+    <script>
+        function showSweetAlert(callback) {
+            console.log("Before SweetAlert");
+            Swal.fire({
+                icon: 'success',
+                title: 'Booking Confirmed!',
+                text: 'Your booking has been confirmed.',
+                confirmButtonText: 'OK'
+            }).then(() => {
+                console.log("After SweetAlert");
+                if (callback) {
+                    callback();
+                }
+            });
+        }
+
+        function bookNow() {
+            // Simulate a successful booking (replace this with your actual booking logic)
+            const bookingSuccessful = true;
+
+            if (bookingSuccessful) {
+                showSweetAlert(() => {
+                    // Redirect to the next page after clicking "OK"
+                    window.location.href = "/booking_confirmation";
+                });
+            } else {
+                // Handle booking failure or show an error message
+                console.log("Booking failed");
+            }
+        }
+    </script>
+</body>
+</html>
