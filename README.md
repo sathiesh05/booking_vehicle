@@ -20,8 +20,8 @@ This is a simple web application built using Flask and MySQL that allows users t
 1. **Clone the repository:**
 
    ```bash
-   git clone <repository-url>
-   cd transport_booking_system
+   git clone https://github.com/sathiesh05/booking_vehicle.git
+   cd booking_vehicle
    ```
 
 2. **Create a virtual environment:**
@@ -80,4 +80,4 @@ If you'd like to contribute to this project, please fork the repository and subm
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License - see the (LICENSE) file for details.
