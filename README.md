@@ -43,8 +43,8 @@ This is a simple web application built using Flask and MySQL that allows users t
    - Use the following credentials in the `app.py` file:
 
      ```python
-     user="root"
-     password="1234567890!@#$%^&*()"
+     user="your-username"
+     password="your-password"
      ```
 
 5. **Run the application:**
