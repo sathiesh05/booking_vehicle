@@ -10,6 +10,7 @@ This is a simple web application built using Flask and MySQL that allows users t
 
 ## Requirements
 
+
 - Python 3.x
 - Flask
 - MySQL
